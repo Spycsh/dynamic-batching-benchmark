@@ -25,7 +25,7 @@ To check the baseline, add `--baseline` to the above commands for each setting
 ## megaservice benchmarks
 
 ```bash
-python3 chatqna_mega_bench.py
+python3 chatqna_mega_bench.py --url http://localhost:8888/v1/chatqna
 ```
 
 Baseline/Feature megaservices both listen to 8888.

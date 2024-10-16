@@ -44,9 +44,13 @@ async def main():
 
 # Run the main function
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--url", type=str, default="http://localhost:8888/v1/chatqna", help="url to megaservice")
+    parser.add_argument("--prompt", type=str, default="What is the revenue of Nike in 2023?")
+    args = parser.parse_args()
 
-    url = "http://localhost:8090/v1/embeddings"
-    payload = {"messages": "What is the revenue of Nike in 2023?"}
+    url = args.url
+    payload = {"messages": args.prompt}
 
     overall_start_time = time.time()
     asyncio.run(main())

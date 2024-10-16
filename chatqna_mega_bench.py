@@ -15,7 +15,10 @@ async def send_request(session, request_id):
         start_time = time.time()
         async with session.post(url, json=payload, headers={'Content-Type': 'application/json'}) as response:
             # Process response if needed
-            result = await response.json()
+            # result = await response.json()
+            result = ""
+            async for chunk in response.content.iter_any():
+                result += chunk.decode('utf-8')
             latency = time.time() - start_time
             latencies.append(latency)
             print(f"Request {request_id} completed with status: {response.status}")

@@ -34,7 +34,7 @@ async def send_requests_batch(session, batch_size, start_id):
     await asyncio.gather(*tasks)
 
 async def main():
-    total_requests = 128
+    total_requests = 256
     requests_per_second = 32
     total_batches = total_requests // requests_per_second
 
